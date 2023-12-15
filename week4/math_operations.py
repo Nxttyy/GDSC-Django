@@ -40,3 +40,5 @@ def apply_operations(tups):
 
     return answers
 # print(apply_operations([(basic_operations, [1,2] ), (basic_operations, [1,4] )]))
+
+Updated at: 2023-12-12 10:46:01.113234
