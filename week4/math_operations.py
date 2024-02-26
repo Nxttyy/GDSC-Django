@@ -39,6 +39,6 @@ def apply_operations(tups):
         answers.append(ans)
 
     return answers
-# print(apply_operations([(basic_operations, [1,2] ), (basic_operations, [1,4] )]))
 
-Updated at: 2023-12-12 10:46:01.113234
+#Updated at: 2024-02-26 21:31:43.765099
+#Updated at: 2024-02-26 21:33:49.493001

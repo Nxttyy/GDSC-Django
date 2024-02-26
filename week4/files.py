@@ -20,7 +20,7 @@ def is_recently_modified(file_path, days=1):
 
 def update_file(file_path):
     with open(file_path, 'a') as file:
-        file.write('\nUpdated at: ' + str(datetime.now()))
+        file.write('\n#Updated at: ' + str(datetime.now()))
 
 def create_last_24hours_folder():
     folder_name = "last_24hours"
@@ -29,7 +29,19 @@ def create_last_24hours_folder():
 
 def move_files_to_last_24hours(files):
     for file in files:
-        shutil.move(file, os.path.join("last_24hours", os.path.basename(file)))
+        try:
+            shutil.move(file, os.path.join("last_24hours", os.path.basename(file)))
+        except shutil.SameFileError:
+            print(f"file[{os.path.basename(file)}] already exists")
+
+def copy_files_to_last_24hours(files):
+    for file in files:
+        try:
+            shutil.copy(file, os.path.join("last_24hours", os.path.basename(file)))
+        except shutil.SameFileError:
+            print(f"file[{os.path.basename(file)}] already exists")
+
+
 
 def main():
     current_directory = os.getcwd()
@@ -43,5 +55,13 @@ def main():
     # Updating TEXT
     for files in files_to_update:
         update_file(files)
-    # mv Moving
-    move_files_to_last_24hours(files_to_update)
+    # Moving
+    # move_files_to_last_24hours(files_to_update)
+        
+    # Copying
+    copy_files_to_last_24hours(files_to_update)
+
+main()
+
+#Updated at: 2024-02-26 21:31:43.765028
+#Updated at: 2024-02-26 21:33:49.492851

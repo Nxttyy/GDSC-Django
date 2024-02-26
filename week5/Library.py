@@ -22,7 +22,7 @@ class Library(object):
 
     def list_books():
         for book in Library.books:
-            print(f"id. :{Library.books.index(book)}, title: {book.title}")
+            print(f"[id.]:{Library.books.index(book)}, title: {book.title}")
 
     def register_user():
         name = input("What is your name?")
